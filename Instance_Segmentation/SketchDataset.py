@@ -8,7 +8,8 @@ sys.path.append('libs')
 import utils
 
 nImgs_map = {'train': 11265, 'val': 2274, 'test': 542}
-
+cate = ["bicycle", "car", "motorcycle", "airplane", "traffic light", "fire hydrant", "cat",
+        "dog", "horse", "sheep", "cow", "elephant", "zebra", "giraffe"]
 
 class SketchDataset(utils.Dataset):
     """Generates the sketchyscene dataset."""
@@ -23,8 +24,8 @@ class SketchDataset(utils.Dataset):
         assert mode in ["train", "val", "test"]
 
         # Add classes
-        for i in range(46):
-            cat_name = self.colorMap[i][0][0]
+        for i in range(len(cate)):
+            cat_name = cate[i]
             self.add_class("sketchyscene", i + 1, cat_name)
 
         # Add images

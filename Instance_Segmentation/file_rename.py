@@ -1,5 +1,6 @@
 import glob
 import tqdm
+import os
 
 ref_path = "/"
 insta_path = "/"
@@ -16,7 +17,7 @@ draw_dir = glob.glob(draw_path)
 length = len(draw_dir)
 
 for i in tqdm.tqdm(range(length)):
-    os.rename(ref_dir[i], save + "reference_image/" + str(i) + ".png")
-    os.rename(insta_dir[i], save + "INSTANCE_GT/" + str(i) + ".mat")
-    os.rename(draw_dir[i], save + "DRAWING_GT/" + str(i) + ".png")
-    os.rename(class_dir[i], save + "CLASS_GT/" + str(i) + ".mat")
+    os.rename(ref_dir[i], save_path + "reference_image/" + str(i) + ".png")
+    os.rename(insta_dir[i], save_path + "INSTANCE_GT/" + str(i) + ".mat")
+    os.rename(draw_dir[i], save_path + "DRAWING_GT/" + str(i) + ".png")
+    os.rename(class_dir[i], save_path + "CLASS_GT/" + str(i) + ".mat")
