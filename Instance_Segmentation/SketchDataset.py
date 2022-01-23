@@ -7,7 +7,7 @@ from PIL import Image
 sys.path.append('libs')
 import utils
 
-nImgs_map = {'train': 5617, 'val': 535, 'test': 1113}
+nImgs_map = {'train': 11265, 'val': 2274, 'test': 542}
 
 
 class SketchDataset(utils.Dataset):
@@ -39,7 +39,7 @@ class SketchDataset(utils.Dataset):
         info = self.image_info[image_id]
         mode = info['mode']
 
-        image_name = 'L0_sample' + str(image_id + 1) + '.png'  # e.g. L0_sample5564.png
+        image_name = str(image_id + 1) + '.png'  # e.g. L0_sample5564.png
 
         images_base_dir = os.path.join(self.dataset_base_dir, mode, 'DRAWING_GT')
         image_path = os.path.join(images_base_dir, image_name)
@@ -70,8 +70,8 @@ class SketchDataset(utils.Dataset):
         info = self.image_info[image_id]
         mode = info['mode']
 
-        mask_class_name = 'sample_' + str(image_id + 1) + '_class.mat'
-        mask_instance_name = 'sample_' + str(image_id + 1) + '_instance.mat'
+        mask_class_name = str(image_id + 1) + '.mat'
+        mask_instance_name = str(image_id + 1) + '.mat'
 
         class_base_dir = os.path.join(self.dataset_base_dir, mode, 'CLASS_GT')
         instance_base_dir = os.path.join(self.dataset_base_dir, mode, 'INSTANCE_GT')

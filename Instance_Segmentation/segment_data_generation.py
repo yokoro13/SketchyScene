@@ -263,7 +263,7 @@ def debug_saved_npz(dataset_type, img_idx, data_base_dir):
     print(pred_masks.shape)
     print(pred_boxes.shape)
 
-    image_name = 'L0_sample' + str(img_idx) + '.png'
+    image_name = str(img_idx) + '.png'
     images_base_dir = os.path.join(data_base_dir, dataset_type, 'DRAWING_GT')
     image_path = os.path.join(images_base_dir, image_name)
     original_image = Image.open(image_path).convert("RGB")
