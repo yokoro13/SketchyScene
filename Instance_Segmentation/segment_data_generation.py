@@ -52,8 +52,10 @@ class SkeSegConfig(Config):
     # use the binary input to filter the pred_mask if 'True'
     IGNORE_BG = True
 
+
 cate = ["bicycle", "car", "motorcycle", "airplane", "traffic light", "fire hydrant", "cat",
         "dog", "horse", "sheep", "cow", "elephant", "zebra", "giraffe"]
+
 
 def segment_data_generation(mode, data_base_dir, use_edgelist=False, debug=False):
     if mode == 'both':
@@ -244,9 +246,6 @@ def expand_small_segmentation_mask(pred_masks_small_list, pred_boxes):
 
     pred_masks = np.stack(pred_masks, axis=0)  # (N, IMAGE_SIZE, IMAGE_SIZE)
     return pred_masks
-
-cate = ["bicycle", "car", "motorcycle", "airplane", "traffic light", "fire hydrant", "cat",
-        "dog", "horse", "sheep", "cow", "elephant", "zebra", "giraffe"]
 
 def debug_saved_npz(dataset_type, img_idx, data_base_dir):
     outputs_base_dir = 'outputs'

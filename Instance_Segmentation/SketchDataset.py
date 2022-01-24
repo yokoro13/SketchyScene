@@ -11,6 +11,7 @@ nImgs_map = {'train': 11265, 'val': 2274, 'test': 542}
 cate = ["bicycle", "car", "motorcycle", "airplane", "traffic light", "fire hydrant", "cat",
         "dog", "horse", "sheep", "cow", "elephant", "zebra", "giraffe"]
 
+
 class SketchDataset(utils.Dataset):
     """Generates the sketchyscene dataset."""
 

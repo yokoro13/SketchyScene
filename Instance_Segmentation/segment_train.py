@@ -8,9 +8,9 @@ sys.path.append('libs')
 from config import Config
 import model as modellib
 
-
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from keras.backend.tensorflow_backend import set_session
+
 tf_config = tf.ConfigProto()
 tf_config.gpu_options.allow_growth = True
 set_session(tf.Session(config=tf_config))
@@ -62,7 +62,8 @@ def instance_segment_train(**kwargs):
     save_model_dir = os.path.join(outputs_base_dir, 'snapshot')
     log_dir = os.path.join(outputs_base_dir, 'log')
     coco_model_path = os.path.join(pretrained_model_base_dir, 'mask_rcnn_coco.h5')
-    imagenet_model_path = os.path.join(pretrained_model_base_dir, 'resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5')
+    imagenet_model_path = os.path.join(pretrained_model_base_dir,
+                                       'resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5')
 
     os.makedirs(save_model_dir, exist_ok=True)
     os.makedirs(log_dir, exist_ok=True)
