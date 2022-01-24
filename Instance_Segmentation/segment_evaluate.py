@@ -6,7 +6,7 @@ import time
 import numpy as np
 from datetime import timedelta
 
-sys.path.append('libs')
+sys.path.append('../libs')
 from config import Config
 import utils
 import model as modellib
@@ -15,9 +15,9 @@ from SketchDataset import SketchDataset
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from keras.backend.tensorflow_backend import set_session
-tf_config = tf.ConfigProto()
+tf_config = tf.compat.v1.ConfigProto()
 tf_config.gpu_options.allow_growth = True
-set_session(tf.Session(config=tf_config))
+set_session(tf.compat.v1.Session(config=tf_config))
 
 
 class SketchEvalConfig(Config):

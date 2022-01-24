@@ -160,7 +160,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
     if not save_path == '':
         masked_image_out = Image.fromarray(np.array(masked_image, dtype=np.uint8))
         draw = ImageDraw.Draw(masked_image_out)
-        font_path = '../libs/TakaoPGothic.ttf'
+        font_path = 'TakaoPGothic.ttf'
 
         if not os.path.exists(font_path):
             font_path = 'libs/TakaoPGothic.ttf'

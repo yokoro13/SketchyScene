@@ -1,11 +1,11 @@
 numpy
-scipy==1.2.1
+scipy
 Pillow
 cython
 matplotlib
 scikit-image
-tensorflow-gpu==1.14.0
-keras==2.0.8
+tensorflow
+keras
 opencv-python
 h5py
 imgaug

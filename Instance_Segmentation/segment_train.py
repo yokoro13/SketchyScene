@@ -4,17 +4,19 @@ import tensorflow as tf
 import argparse
 from SketchDataset import SketchDataset
 
-sys.path.append('libs')
-from config import Config
-import model as modellib
+from libs.config import Config
+import libs.model as modellib
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-from keras.backend.tensorflow_backend import set_session
+from tensorflow.python.keras.backend import get_session
 
-tf_config = tf.ConfigProto()
-tf_config.gpu_options.allow_growth = True
-set_session(tf.Session(config=tf_config))
-
+physical_devices = tf.config.list_physical_devices('GPU')
+if len(physical_devices) > 0:
+    for device in physical_devices:
+        tf.config.experimental.set_memory_growth(device, True)
+        print('{} memory growth: {}'.format(device, tf.config.experimental.get_memory_growth(device)))
+else:
+    print("Not enough GPU hardware devices available")
 
 class SketchTrainConfig(Config):
     # Give the configuration a recognizable name
@@ -76,9 +78,13 @@ def instance_segment_train(**kwargs):
     dataset_train.load_sketches("train")
     dataset_train.prepare()
 
+    dataset_val = SketchDataset(data_base_dir)
+    dataset_val.load_sketches("val")
+    dataset_val.prepare()
+
     # Create model in training mode
     model = modellib.MaskRCNN(mode="training", config=config,
-                              model_dir=save_model_dir, log_dir=log_dir)
+                              model_dir=save_model_dir)
 
     if init_with == "imagenet":
         print("Loading weights from ", imagenet_model_path)
@@ -100,6 +106,7 @@ def instance_segment_train(**kwargs):
 
     # Fine tune all layers
     model.train(dataset_train,
+                dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=config.TOTAL_EPOCH,
                 layers="all")
