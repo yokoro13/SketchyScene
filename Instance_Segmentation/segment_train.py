@@ -25,7 +25,7 @@ class SketchTrainConfig(Config):
     IMAGES_PER_GPU = 2
 
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 46  # background + 46 classes
+    NUM_CLASSES = 3 + 14  # background + 46 classes
 
     # If enabled, resizes instance masks to a smaller size to reduce
     # memory load. Recommended when using high-resolution images.
