@@ -16,8 +16,6 @@ class SketchDataset(utils.Dataset):
 
     def __init__(self, dataset_base_dir):
         self.dataset_base_dir = dataset_base_dir
-        color_map_mat_path = os.path.join(dataset_base_dir, 'colorMapC46.mat')
-        self.colorMap = scipy.io.loadmat(color_map_mat_path)['colorMap']
         super(SketchDataset, self).__init__()
 
     def load_sketches(self, mode):

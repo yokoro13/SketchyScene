@@ -70,8 +70,6 @@ def segment_data_generation(mode, data_base_dir, use_edgelist=False, debug=False
     model_path = os.path.join(trained_model_dir, 'mask_rcnn_sketchyscene_' + epochs + '.h5')
 
     dataset_class_names = ['bg']
-    color_map_mat_path = os.path.join(data_base_dir, 'colorMapC46.mat')
-    colorMap = scipy.io.loadmat(color_map_mat_path)['colorMap']
     for i in range(len(cate)):
         cat_name = cate[i]
         dataset_class_names.append(cat_name)
@@ -275,8 +273,6 @@ def debug_saved_npz(dataset_type, img_idx, data_base_dir):
     original_image = np.array(original_image, dtype=np.float32)  # shape = [H, W, 3]
 
     dataset_class_names = ['bg']
-    color_map_mat_path = os.path.join(data_base_dir, 'colorMapC46.mat')
-    colorMap = scipy.io.loadmat(color_map_mat_path)['colorMap']
     for i in range(len(cate)):
         cat_name = cate[i]
         dataset_class_names.append(cat_name)

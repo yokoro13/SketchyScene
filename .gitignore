@@ -106,3 +106,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+*.mat
+*.jpg
+*.png
