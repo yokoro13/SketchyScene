@@ -7,9 +7,9 @@ from PIL import Image
 sys.path.append('libs')
 import utils
 
-nImgs_map = {'train': 11265, 'val': 2274, 'test': 542}
-cate = ["bicycle", "car", "motorcycle", "airplane", "traffic light", "fire hydrant", "cat",
-        "dog", "horse", "sheep", "cow", "elephant", "zebra", "giraffe"]
+nImgs_map = {'train': 11264, 'val': 2273, 'test': 541}
+cate = ["bicycle", "car", "motorcycle", "airplane", "fire hydrant", "traffic light", "cat", "dog",
+        "horse", "sheep", "cow", "elephant", "other", "zebra", "giraffe", "cloud", "grass", "cloud", "tree"]
 
 
 class SketchDataset(utils.Dataset):
