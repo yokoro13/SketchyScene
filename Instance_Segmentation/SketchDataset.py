@@ -4,7 +4,8 @@ import numpy as np
 import scipy.io
 from PIL import Image
 
-from libs import utils
+sys.path.append('libs')
+import utils
 
 nImgs_map = {'train': 11264, 'val': 2273, 'test': 541}
 cate = ["bicycle", "car", "motorcycle", "airplane", "fire hydrant", "traffic light", "cat", "dog",
