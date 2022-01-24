@@ -2266,6 +2266,12 @@ class MaskRCNN():
                                             verbose=0,
                                             save_best_only=True,
                                             save_weights_only=True),
+            keras.callbacks.ModelCheckpoint(
+                filepath="outputs/snapshot/mask_rcnn_" + "model-{epoch:02d}-{val_loss:.2f}.h5",
+                monitor='val_loss',
+                save_best_only=True,
+                period=1,
+            )
         ]
 
         # Train
